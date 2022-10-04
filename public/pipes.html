@@ -27,10 +27,10 @@
         <div class='widgets'>
             <div class = 'navBar'>
                 <button class='pressureBtn'>Pressure</button>
-                <button class='rateBtn'>Flow rate</button>
+                <button class='coordBtn' onclick = 'coordsShow()'>Coordinates</button>
                 <button class='seriesBtn'>Time series</button>
-                <button id = 'changes' class='junctionsBtn' onclick = 'tablesShow(), btnChange()'>Junctions</button>
-                <button class='metadataBtn'>Pipe metadata</button>
+                <button class='junctionsBtn' onclick = 'tablesShow()'>Junctions</button>
+                <button class='metadataBtn' onclick = 'metadataShow()' >Pipe metadata</button>
                 <button class='layoutBtn'>Pipe layout</button>
             </div>
 
@@ -68,24 +68,49 @@
                 <tbody id='table_body2' class = 'text-center'></tbody>
             </table>
 
+            <table id = 'tblCoord' class="table table table-sm table table-hover tblCoord">
+                <thead class="thead-light text-center">
+                    <tr>
+                        <th scope="col" class = 'text-center'>Node</th>
+                        <th scope="col" class = 'text-center'>X-coordinate</th>
+                        <th scope="col" class = 'text-center'>Y-coordinate</th>
+                    </tr>
+                </thead>
+                <tbody id='table_body4' class = 'text-center'></tbody>
+            </table>
+
         </div>
     </div>
 
     <script>
         window.addEventListener("load", function(){
             document.getElementById('tblJ').style.display = 'none';
+            document.getElementById('tblCoord').style.display = 'none';
         })
 
-        function tablesShow() {
+        function tablesShow() { //show Junctions table
             document.getElementById('pathDir').textContent = 'Home > Junctions';
             document.getElementById('heading').textContent = 'Junctions';
             document.getElementById('tblJ').style.display = 'block';
             document.getElementById('tbl').style.display = 'none';
+            document.getElementById('tblCoord').style.display = 'none';
             };
         
-        function btnChange() {
-            document.getElementById('changes').body.style.outline = 'none';
-            }
+        function coordsShow(){ //show the coordinates table
+            document.getElementById('pathDir').textContent = 'Home > Coordinates';
+            document.getElementById('heading').textContent = 'Coordinates';
+            document.getElementById('tblCoord').style.display = 'block';
+            document.getElementById('tbl').style.display = 'none'; 
+            document.getElementById('tblJ').style.display = 'none'; 
+        }
+
+        function metadataShow(){
+            document.getElementById('pathDir').textContent = 'Home > Pipe metadata';
+            document.getElementById('heading').textContent = 'Pipe metadata';
+            document.getElementById('tblCoord').style.display = 'none';
+            document.getElementById('tbl').style.display = 'block';
+            document.getElementById('tblJ').style.display = 'none';  
+        }
     </script>
 
 </body>
