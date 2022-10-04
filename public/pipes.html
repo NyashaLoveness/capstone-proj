@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="../pipes.js"></script>
+    <link href="./pipes.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class='container'>
+        <div class='header'>
+            <span class='path' id = 'pathDir'>Home > Pipe metadata </span>
+        </div>
+
+        <div class='sidebar'>
+            <button class='homebtn'><img class = 'icons1' src = 'home.png'>Home</button>
+            <button class='ordersbtn'><img class = 'icons' src = 'font-selection-editor.png'>Work orders</button>
+            <button class='settingsbtn'><img class = 'icons' src = 'cog-wheel-silhouette.png'>Settings</button>
+        </div>
+
+        <div class='widgets'>
+            <div class = 'navBar'>
+                <button class='pressureBtn'>Pressure</button>
+                <button class='rateBtn'>Flow rate</button>
+                <button class='seriesBtn'>Time series</button>
+                <button id = 'changes' class='junctionsBtn' onclick = 'tablesShow(), btnChange()'>Junctions</button>
+                <button class='metadataBtn'>Pipe metadata</button>
+                <button class='layoutBtn'>Pipe layout</button>
+            </div>
+
+        </div>
+
+        <div class='pipe_data'>
+            <h1 id = 'heading'>Pipe metadata</h1>
+        </div>
+        <div class='content table-responsive"' >
+            <table id = 'tbl' class="table table table-sm table table-hover">
+                <thead class="thead-light text-center">
+                    <tr>
+                        <th scope="col" class = 'text-center'>ID</th>
+                        <th scope="col" class = 'text-center'>Node 1</th>
+                        <th scope="col" class = 'text-center'>Node 2</th>
+                        <th scope="col" class = 'text-center'>Length</th>
+                        <th scope="col" class = 'text-center'>Diameter</th>
+                        <th scope="col" class = 'text-center'>Roughness</th>
+                        <th scope="col" class = 'text-center'>Minor loss</th>
+                        <th scope="col" class = 'text-center'>Status</th>
+                    </tr>
+                </thead>
+                <tbody id='table_body' class = 'text-center'></tbody>
+            </table>
+
+            <table id = 'tblJ' class="table table table-sm table table-hover tblJ">
+                <thead class="thead-light text-center">
+                    <tr>
+                        <th scope="col" class = 'text-center'>ID</th>
+                        <th scope="col" class = 'text-center'>Elevation</th>
+                        <th scope="col" class = 'text-center'>Demand</th>
+                        <th scope="col" class = 'text-center'>Pattern</th>
+                    </tr>
+                </thead>
+                <tbody id='table_body2' class = 'text-center'></tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("load", function(){
+            document.getElementById('tblJ').style.display = 'none';
+        })
+
+        function tablesShow() {
+            document.getElementById('pathDir').textContent = 'Home > Junctions';
+            document.getElementById('heading').textContent = 'Junctions';
+            document.getElementById('tblJ').style.display = 'block';
+            document.getElementById('tbl').style.display = 'none';
+            };
+        
+        function btnChange() {
+            document.getElementById('changes').body.style.outline = 'none';
+            }
+    </script>
+
+</body>
+
+</html>
