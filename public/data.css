@@ -142,3 +142,18 @@ table {
 /* ::-webkit-scrollbar-track{
     background-color: blue;
 } */
+
+.settingsBox {
+    background-color: white;
+}
+.settingsHead{
+    margin-left: 1em;
+    font-size: 1.3em;
+}
+.subSettings{
+    margin-left: 2em;
+    font-size: 1em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    background-color: rgba(202, 203, 204, 1);
+}

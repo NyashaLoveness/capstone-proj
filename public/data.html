@@ -21,10 +21,10 @@
         <div class='sidebar'>
             <button class='homebtn'><img class = 'icons1' src = 'home.png'>Home</button>
             <button class='ordersbtn'><img class = 'icons' src = 'font-selection-editor.png'>Work orders</button>
-            <button class='settingsbtn'><img class = 'icons' src = 'cog-wheel-silhouette.png'>Settings</button>
+            <button class='settingsbtn' onclick = 'settingsShow()'><img class = 'icons' src = 'cog-wheel-silhouette.png'>Settings</button>
         </div>
 
-        <div class='widgets'>
+        <div id = 'tabs' class='widgets'>
             <div class = 'navBar'>
                 <button class='pressureBtn'>Pressure</button>
                 <button class='coordBtn' onclick = 'coordsShow()'>Coordinates</button>
@@ -36,7 +36,7 @@
 
         </div>
 
-        <div class='pipe_data'>
+        <div id = 'box' class='pipe_data'>
             <h1 id = 'heading'>Pipe metadata</h1>
         </div>
         <div class='content table-responsive"' >
@@ -53,7 +53,7 @@
                         <th scope="col" class = 'text-center'>Status</th>
                     </tr>
                 </thead>
-                <tbody id='table_body' class = 'text-center'></tbody>
+                <tbody id ='table_body' class = 'text-center'></tbody>
             </table>
 
             <table id = 'tblJ' class="table table table-sm table table-hover tblJ">
@@ -78,6 +78,16 @@
                 </thead>
                 <tbody id='table_body4' class = 'text-center'></tbody>
             </table>
+        
+        <div id = 'settingsPg' class = 'settingsBox'>
+            <span class = 'settingsHead'>Account information</span>
+                <div class = 'subSettings'>Profile</div>
+                <div class = 'subSettings'>Notifications</div>
+            <span class = 'settingsHead'>Support</span>
+                <div class = 'subSettings'>Get help</div>
+                <div class = 'subSettings'>Terms and privacy</div>
+            <span class = 'settingsHead'>Logout</span>
+        </div>
 
         </div>
     </div>
@@ -86,6 +96,7 @@
         window.addEventListener("load", function(){
             document.getElementById('tblJ').style.display = 'none';
             document.getElementById('tblCoord').style.display = 'none';
+            document.getElementById('settingsPg').style.display = 'none';
         })
 
         function tablesShow() { //show Junctions table
@@ -94,6 +105,7 @@
             document.getElementById('tblJ').style.display = 'block';
             document.getElementById('tbl').style.display = 'none';
             document.getElementById('tblCoord').style.display = 'none';
+            document.getElementById('settingsPg').style.display = 'none';
             };
         
         function coordsShow(){ //show the coordinates table
@@ -102,6 +114,7 @@
             document.getElementById('tblCoord').style.display = 'block';
             document.getElementById('tbl').style.display = 'none'; 
             document.getElementById('tblJ').style.display = 'none'; 
+            document.getElementById('settingsPg').style.display = 'none';
         }
 
         function metadataShow(){
@@ -110,7 +123,18 @@
             document.getElementById('tblCoord').style.display = 'none';
             document.getElementById('tbl').style.display = 'block';
             document.getElementById('tblJ').style.display = 'none';  
+            document.getElementById('settingsPg').style.display = 'none';
         }
+
+        function settingsShow(){
+            document.getElementById('pathDir').textContent = 'Settings';
+            document.getElementById('heading').textContent = 'Settings';
+            document.getElementById('tabs').style.display = 'none';
+            document.getElementById('tbl').style.display = 'none';
+            document.getElementById('box').style.marginTop = '-27em';
+            document.getElementById('settingsPg').style.display = 'block';
+
+        }   
     </script>
 
 </body>

@@ -30,11 +30,11 @@ const corsOptions = {
  app.use(cors(corsOptions)) // Use this after the variable declaration
 
 
-app.get('/pipes', async function (req, res) {
-    const pipe_data = await db.all(`select * from pipes`)
+app.get('/pipes', async function(req, res) {
+    const pipe_data = await db.all(`select * from pipes`);
     res.json({
         pipe_data
-    })
+    });
 });
 
 app.get('/junctions', (req, res) =>{

@@ -1,34 +1,23 @@
 fetch('http://localhost:6061/pipes')
-    .then((data) =>{ //data is in json format
-        //console.log(data)
-        return data.json(); //convert data to jobject
+    .then((pipe_data) => {
+        //console.log(pipe_data) data is in json format
+        return pipe_data.json(); //converted to obj
     })
     .then((object) => { //object is a var representing our converted json data
-        //console.log(object);
+        console.log(object);
         let tableData = '';
-        object.map((values) => {
-            tableData += `
-                <tr>
-                    <td>${values.ID}</td>
-                    <td>${values.Node1}</td>
-                    <td>${values.Node2}</td>
-                    <td>${values.Length}</td>
-                    <td>${values.Diameter}</td>
-                    <td>${values.Roughness}</td>
-                    <td>${values.MinorLoss}</td>
-                    <td>${values.Status}</td>
-                </tr>
-            `;
-        });
+        
+        console.log(tableData);
         document.getElementById('table_body')
-            .innerHTML = tableData;
+            .innerHTML = tableData;   
     })
     .catch((err) => {
         console.log('error')
     })
 
-    fetch('http://localhost:6061/junctions')
-    .then((dataJunction) =>{ //data is in json format
+
+fetch('http://localhost:6061/junctions')
+    .then((dataJunction) => { //data is in json format
         //console.log(data)
         return dataJunction.json(); //convert data to jobject
     })
@@ -52,8 +41,8 @@ fetch('http://localhost:6061/pipes')
         console.log('error')
     })
 
-    fetch('http://localhost:6061/reservoirs')
-    .then((dataReservoir) =>{ //data is in json format
+fetch('http://localhost:6061/reservoirs')
+    .then((dataReservoir) => { //data is in json format
         //console.log(data)
         return dataReservoir.json(); //convert data to jobject
     })
@@ -75,8 +64,8 @@ fetch('http://localhost:6061/pipes')
         console.log('error')
     })
 
-    fetch('http://localhost:6061/coordinates')
-    .then((dataCoord) =>{ //data is in json format
+fetch('http://localhost:6061/coordinates')
+    .then((dataCoord) => { //data is in json format
         //console.log(data)
         return dataCoord.json(); //convert data to jobject
     })
