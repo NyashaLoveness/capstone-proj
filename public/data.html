@@ -9,16 +9,36 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
     <script type="text/javascript" src="../data.js"></script>
+    <script type="text/javascript" src="../functions.js"></script>
     <link href="./data.css" rel="stylesheet" />
 </head>
 
 <body>
     <div class='container'>
+        <div id = 'loginPg' class = 'login'>
+            <div class = 'username'>
+                <label>Username</label>
+                <input id = 'name' type = 'text'>
+            </div>
+            <div class = 'passwd'>
+                <label>Password</label>
+                <input id = 'passwd' type = 'text'>
+            </div>
+            <div class = 'checkbox'>
+                <input type = 'checkbox'>
+                <label>Keep me signed in</label>
+            </div>
+            <div><button class = 'loginBtn' onclick="login()">Sign in</button></div>
+            <label>Don't have an account yet? Register here</label>
+        </div>
+
+
+
         <div class='header'>
             <span class='path' id = 'pathDir'>Home > Pipe metadata </span>
         </div>
 
-        <div class='sidebar'>
+        <div id = 'menu' class='sidebar'>
             <button class='homebtn'><img class = 'icons1' src = 'home.png'>Home</button>
             <button class='ordersbtn'><img class = 'icons' src = 'font-selection-editor.png'>Work orders</button>
             <button class='settingsbtn' onclick = 'settingsShow()'><img class = 'icons' src = 'cog-wheel-silhouette.png'>Settings</button>
@@ -39,7 +59,7 @@
         <div id = 'box' class='pipe_data'>
             <h1 id = 'heading'>Pipe metadata</h1>
         </div>
-        <div class='content table-responsive"' >
+        <div id = 'contentBox' class='content table-responsive"' >
             <table id = 'tbl' class="table table table-sm table table-hover">
                 <thead class="thead-light text-center">
                     <tr>
@@ -81,61 +101,16 @@
         
         <div id = 'settingsPg' class = 'settingsBox'>
             <span class = 'settingsHead'>Account information</span>
-                <div class = 'subSettings'>Profile</div>
-                <div class = 'subSettings'>Notifications</div>
+                <div class = 'subSettings'><button class = 'settingsBtn'>Profile</button></div>
+                <div class = 'subSettings'><button class = 'settingsBtn'>Notifications</button></div>
             <span class = 'settingsHead'>Support</span>
-                <div class = 'subSettings'>Get help</div>
-                <div class = 'subSettings'>Terms and privacy</div>
-            <span class = 'settingsHead'>Logout</span>
+                <div class = 'subSettings'><button class = 'settingsBtn'>Get help</button></div>
+                <div class = 'subSettings'><button class = 'settingsBtn'>Terms and privacy</button></div>
+            <span class = 'settingsHead'><button class = 'logoutBtn'>Logout</button></span>
         </div>
 
         </div>
     </div>
-
-    <script>
-        window.addEventListener("load", function(){
-            document.getElementById('tblJ').style.display = 'none';
-            document.getElementById('tblCoord').style.display = 'none';
-            document.getElementById('settingsPg').style.display = 'none';
-        })
-
-        function tablesShow() { //show Junctions table
-            document.getElementById('pathDir').textContent = 'Home > Junctions';
-            document.getElementById('heading').textContent = 'Junctions';
-            document.getElementById('tblJ').style.display = 'block';
-            document.getElementById('tbl').style.display = 'none';
-            document.getElementById('tblCoord').style.display = 'none';
-            document.getElementById('settingsPg').style.display = 'none';
-            };
-        
-        function coordsShow(){ //show the coordinates table
-            document.getElementById('pathDir').textContent = 'Home > Coordinates';
-            document.getElementById('heading').textContent = 'Coordinates';
-            document.getElementById('tblCoord').style.display = 'block';
-            document.getElementById('tbl').style.display = 'none'; 
-            document.getElementById('tblJ').style.display = 'none'; 
-            document.getElementById('settingsPg').style.display = 'none';
-        }
-
-        function metadataShow(){
-            document.getElementById('pathDir').textContent = 'Home > Pipe metadata';
-            document.getElementById('heading').textContent = 'Pipe metadata';
-            document.getElementById('tblCoord').style.display = 'none';
-            document.getElementById('tbl').style.display = 'block';
-            document.getElementById('tblJ').style.display = 'none';  
-            document.getElementById('settingsPg').style.display = 'none';
-        }
-
-        function settingsShow(){
-            document.getElementById('pathDir').textContent = 'Settings';
-            document.getElementById('heading').textContent = 'Settings';
-            document.getElementById('tabs').style.display = 'none';
-            document.getElementById('tbl').style.display = 'none';
-            document.getElementById('box').style.marginTop = '-27em';
-            document.getElementById('settingsPg').style.display = 'block';
-
-        }   
-    </script>
 
 </body>
 

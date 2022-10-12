@@ -145,10 +145,11 @@ table {
 
 .settingsBox {
     background-color: white;
+    margin: 2em;
 }
 .settingsHead{
     margin-left: 1em;
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 .subSettings{
     margin-left: 2em;
@@ -156,4 +157,26 @@ table {
     margin-bottom: 1em;
     padding: 0.5em;
     background-color: rgba(202, 203, 204, 1);
+    border-radius: 0.5em;
+    margin-right: 1.5em;
+}
+.settingsBtn{
+    border: none;
+    outline: none;
+    padding: 0px 290px 0px 0px;
+    text-align: left;
+    background-color: rgba(202, 203, 204, 1);
+}
+.settingsBtn:focus{
+    outline: none;
+}
+.logoutBtn{
+    border: none;
+    outline: none;
+    background-color: white;
+    padding: 0px 290px 0px 0px;
+    margin-bottom: 0.6em;
+}
+.logoutBtn:focus{
+    outline: none; 
 }
