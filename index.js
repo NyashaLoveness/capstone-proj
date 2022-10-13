@@ -7,7 +7,6 @@ const app = express();
 
 app.use(express.static('public'))
 app.use(express.json());
-const PORT = process.env.PORT || 6061;
 
 const  db = await  sqlite.open({
     filename:  './leaks.db',
@@ -18,9 +17,7 @@ await db.exec(`PRAGMA foreign_keys = ON;`);
 await db.migrate();
 
 //fire up the port
-app.listen(
-    PORT, () => console.log(`App started on ${PORT}`)
-)
+app.listen(process.env.PORT || 6061)
 
 const corsOptions = {
    origin:'*',
